@@ -44,6 +44,24 @@
             entries: []
          }));
      });
+     it('handles existing VOTE', () => {
+         const initialState = fromJS({
+             vote: {
+                 pair: ['Trainspotting', '28 Days Later'],
+                 tally: {'Trainspotting': 1, '28 Days Later': 3}
+             },
+             entries: []
+         });
+         const action = {type: 'VOTE', entry: 'Trainspotting'};
+         const nextState = reducer(initialState, action);
+         expect(nextState).to.equal(fromJS({
+             vote: {
+                 pair: ['Trainspotting', '28 Days Later'],
+                 tally: {'Trainspotting': 2, '28 Days Later': 3}
+             },
+             entries: []
+         }));
+     });
 
 
 
