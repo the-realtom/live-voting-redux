@@ -1,5 +1,8 @@
 import {List, Map} from 'immutable';
 
+/* The implementation of setEntries simply sets an entries key
+ * in the state Map, then sets the value as the given List of entries.
+* */
 export function setEntries(state, entries) {
     return state.set('entries', List(entries));
 }
