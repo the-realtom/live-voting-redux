@@ -12,7 +12,7 @@ export default function startServer(store) {
     });
 
     /* In addition to sending the state whenever it changes, the should
-     * be able to recieve the current state whenever they connect.
+     * be able to receive the current state whenever they connect.
      * We can listen for connection events on the socket.io server
      * and emit the state right away.
     * */
