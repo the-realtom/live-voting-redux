@@ -18,7 +18,19 @@ describe('application logic', () => {
                 entries: List.of('Trainspotting', '28 Days Later')
             }));
         });
-        
+
+        /* For convenience we'll allow the input entries to be a regular JavaScript
+         * array (or anything iterable). It should be an Immutable List by the time it
+         * gets to the state tree.
+         * */
+        it('converts to immutable', () => {
+            const state = Map();
+            const entries = ['Trainspotting', '28 Days Later'];
+            const nextState = setEntries(state, entries);
+            expect(nextState).to.equal(Map({
+                entries: List.of('Trainspotting', '28 Days Later')
+            }));
+        });
     });
 
     describe('next', () => {
