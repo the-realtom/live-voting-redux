@@ -4,6 +4,10 @@ import {setEntries, next, vote} from '../src/core';
 
 describe('application logic', () => {
 
+    /* The application allows loading in a collection of entries to be voted on.
+     * We should have a function that takes a previous state and produces a state
+     * where the entries are included. The test is to check setEntries does that.
+    * */
     describe('setEntries', () => {
 
         it('adds the entries to the state', () => {
@@ -14,6 +18,7 @@ describe('application logic', () => {
                 entries: List.of('Trainspotting', '28 Days Later')
             }));
         });
+        
     });
 
     describe('next', () => {
