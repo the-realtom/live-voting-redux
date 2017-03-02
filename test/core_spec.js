@@ -33,6 +33,11 @@ describe('application logic', () => {
         });
     });
 
+    /* The voting can begin by calling next on a state that already has entries set.
+     * The function takes no additional arguments.
+     * It should create a vote map where the first two entries are included under the key 'pair'.
+     * The entries under vote should no longer be in the vote list.
+    * */
     describe('next', () => {
 
         it('takes the next two entries under vote', () => {
@@ -40,7 +45,6 @@ describe('application logic', () => {
                 entries: List.of('Trainspotting', '28 Days Later', 'Sunshine')
             });
             const nextState = next(state);
-            console.log(nextState)
             expect(nextState).to.equal(Map({
                 vote: Map({
                     pair: List.of('Trainspotting', '28 Days Later')
