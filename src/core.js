@@ -17,6 +17,8 @@ function getWinners(vote) {
     else                      return [a, b];
 }
 
+
+
 export function next(state) {
     const entries = state.get('entries')
         .concat(getWinners(state.get('vote')));
@@ -25,6 +27,9 @@ export function next(state) {
                     .remove('entries')
                     .set('winner', entries.first());
     } else {
+        // This will merge an update into the old state, where the first
+        // two entries are put into one List in 'pair' and the rest in the new
+        // version of entries
         return state.merge({
             vote: Map({pair: entries.take(2)}),
             entries: entries.skip(2)
