@@ -37,6 +37,10 @@ export function next(state) {
     }
 }
 
+/* updateIn makes reaches into the data structure path and applies the function.
+ * If there are keys missing, new Maps are put in there place.
+ * If the value at the end is missing, initialize it with 0.
+* */
 export function vote(voteState, entry) {
     return voteState.updateIn(
         ['tally', entry],
