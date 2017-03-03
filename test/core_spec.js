@@ -109,6 +109,10 @@ describe('application logic', () => {
 
     });
 
+    /* When a vote is ongoing in should be possible for people to vote on entries.
+     * When a new vote is cast for an entry, a 'tally' for it should appear in the vote.
+     * If there is already a tally, it should be incremented.
+    * */
     describe('vote', () => {
 
         it('creates a tally for the voted entry', () => {
