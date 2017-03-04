@@ -71,6 +71,8 @@ describe('application logic', () => {
                 entries: List.of('127 Hours', 'Trainspotting')
             }));
         });
+        /* If voting results in a draw, the pair must be put back into entries.
+        * */
         it('puts both from tied entries', () => {
             const state = Map({
                 vote: Map({
@@ -90,6 +92,9 @@ describe('application logic', () => {
                 entries: List.of('127 Hours', 'Trainspotting', '28 Days Later')
             }));
         });
+        /* When no entries remain and the last pair is being voted on, calling next will
+         * result in one entry being left. Therefore this entry should be the winner.
+        * */
         it('marks winner when just one entry left', () => {
             const state = Map({
                 vote: Map({
