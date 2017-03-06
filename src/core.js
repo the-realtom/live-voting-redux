@@ -7,6 +7,10 @@ export function setEntries(state, entries) {
     return state.set('entries', List(entries));
 }
 
+/* The winning entry should be kept and added back to the entries to be later
+ * paired with something else. The losing entry is thrown away. If it is a
+ * tie, both entries are kept.
+* */
 function getWinners(vote) {
     if (!vote) return [];
     const [a, b] = vote.get('pair');
@@ -16,8 +20,6 @@ function getWinners(vote) {
     else if (aVotes < bVotes) return [b];
     else                      return [a, b];
 }
-
-
 
 export function next(state) {
     const entries = state.get('entries')
